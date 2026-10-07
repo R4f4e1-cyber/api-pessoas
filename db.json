@@ -1,0 +1,22 @@
+{
+  "pessoas": [
+    {
+      "id": 1,
+      "nome": "João da Silva",
+      "idade": 25,
+      "email": "joao@email.com"
+    },
+    {
+      "id": 2,
+      "nome": "Maria Souza",
+      "idade": 32,
+      "email": "maria@email.com"
+    },
+    {
+      "id": 3,
+      "nome": "Carlos Oliveira",
+      "idade": 17,
+      "email": "carlos@email.com"
+    }
+  ]
+}

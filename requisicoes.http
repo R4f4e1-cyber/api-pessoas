@@ -1,0 +1,90 @@
+# Abra este arquivo com a extensão REST Client instalada no VS Code.
+# Clique em "Send Request" sobre cada exemplo.
+
+### 1. Listar pessoas
+GET http://localhost:3000/pessoas
+
+### 2. Buscar por ID
+GET http://localhost:3000/pessoas/1
+
+### 3. Cadastro válido (esperado: 201)
+POST http://localhost:3000/pessoas
+Content-Type: application/json
+
+{
+  "nome": "Ana Souza",
+  "idade": 25,
+  "email": "ana@email.com"
+}
+
+### 4. Cadastro com idade inválida (esperado: 400)
+POST http://localhost:3000/pessoas
+Content-Type: application/json
+
+{
+  "nome": "Pessoa Inválida",
+  "idade": 150,
+  "email": "teste@email.com"
+}
+
+### 5. Cadastro com nome vazio (esperado: 400)
+POST http://localhost:3000/pessoas
+Content-Type: application/json
+
+{
+  "nome": "   ",
+  "idade": 30,
+  "email": "teste@email.com"
+}
+
+### 6. Cadastro com email inválido (esperado: 400)
+POST http://localhost:3000/pessoas
+Content-Type: application/json
+
+{
+  "nome": "Pessoa Teste",
+  "idade": 30,
+  "email": "teste-sem-arroba"
+}
+
+### 7. Pessoa inexistente (esperado: 404)
+GET http://localhost:3000/pessoas/999
+
+### 8. Filtro idade exata
+GET http://localhost:3000/pessoas?idade=25
+
+### 9. Filtro idade mínima
+GET http://localhost:3000/pessoas?idadeMin=18
+
+### 10. Filtro idade máxima
+GET http://localhost:3000/pessoas?idadeMax=30
+
+### 11. Filtro por faixa
+GET http://localhost:3000/pessoas?idadeMin=18&idadeMax=30
+
+### 12. Atualizar pessoa 2
+PUT http://localhost:3000/pessoas/2
+Content-Type: application/json
+
+{
+  "nome": "Maria Oliveira",
+  "idade": 35,
+  "email": "maria@email.com"
+}
+
+### 13. Atualização com idade inválida (esperado: 400)
+PUT http://localhost:3000/pessoas/2
+Content-Type: application/json
+
+{
+  "nome": "Maria Oliveira",
+  "idade": 200,
+  "email": "maria@email.com"
+}
+
+### 14. Excluir pessoa 3 (esperado: 204)
+# Execute este teste por último, pois a pessoa 3 será excluída.
+DELETE http://localhost:3000/pessoas/3
+
+### 15. Exclusão de pessoa inexistente (esperado: 404)
+DELETE http://localhost:3000/pessoas/999
